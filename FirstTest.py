@@ -135,9 +135,10 @@ def ecu_connections():
 
 # Turn off debug mode
 obd.logger.removeHandler(obd.console_handler)
-
+ecu_connections()
 run = True
 logging = True
 while run:
     if logging:
+        print(rpm)
         log_to_file(logFilename)
