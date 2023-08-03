@@ -3,6 +3,7 @@
 import obd
 import csv
 from datetime import datetime
+from datetime import date
 
 obd.logger.setLevel(obd.logging.DEBUG)
 
