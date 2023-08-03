@@ -2,7 +2,7 @@
 
 import obd
 import csv
-from datetime import date
+from datetime import datetime
 
 obd.logger.setLevel(obd.logging.DEBUG)
 
@@ -15,13 +15,13 @@ fuel_rail_press = 0
 afr = 0
 o2_trim = 0
 timing_advance = 0
-
+timestamp = datetime.now()
 connection = obd.Async(fast=False)
 logFilename = "data_logging_" + str(date.today()) + ".csv"
 
 def setupLogFile(fileName):
     
-    header = ['SPEED','RPM', 'Intake Temp.', 'MAF (g/s)', 'Engine Load', 'Fuel Rail Press.', 'AFR', 'Long B2 Trim', 'Timing Adv.']
+    header = ['TIME','SPEED','RPM', 'Intake Temp.', 'MAF (g/s)', 'Engine Load', 'Fuel Rail Press.', 'AFR', 'Long B2 Trim', 'Timing Adv.']
     with open(fileName, "w", newline="") as dl:
         writer = csv.writer(dl)
         writer.writerow(header)
@@ -29,6 +29,7 @@ def setupLogFile(fileName):
 setupLogFile(logFilename)
 
 def log_to_file(fileName):
+    timestamp = datetime.now()
     row = [str(speed), str(rpm), str(intake_temp), str(maf), str(load), str(fuel_rail_press), str(afr), str(o2_trim), str(timing_advance)]
     with open(fileName, "a", newline="") as dl:
         writer = csv.writer(dl)
@@ -136,6 +137,6 @@ obd.logger.removeHandler(obd.console_handler)
 
 run = True
 logging = True
-
-if logging:
-    log_to_file(logFilename)
+while run:
+    if logging:
+        log_to_file(logFilename)
