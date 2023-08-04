@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 def setupLogFile(fileName):
     
@@ -10,7 +11,7 @@ def setupLogFile(fileName):
 
 def log_to_file(fileName):
     timestamp = datetime.now()
-    row = [str(speed), str(rpm), str(intake_temp), str(maf), str(load), str(fuel_rail_press), str(afr), str(o2_trim), str(timing_advance)]
+    row = [str(timestamp),str(speed), str(rpm), str(intake_temp), str(maf), str(load), str(fuel_rail_press), str(afr), str(o2_trim), str(timing_advance)]
     with open(fileName, "a", newline="") as dl:
         writer = csv.writer(dl)
         writer.writerow(row)
