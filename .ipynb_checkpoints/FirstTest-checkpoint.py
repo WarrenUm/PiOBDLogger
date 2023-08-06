@@ -154,5 +154,6 @@ logging = True
 while run:
     
     if logging:
-        log_to_file()
+        print(rpm)
+        log_to_file(logFilename)
         time.sleep(0.25)
