@@ -12,8 +12,8 @@ obd.logger.setLevel(obd.logging.DEBUG)
 def get_speed(s):
     global speed
     if not s.is_null():
-        # speed = int(s.value.magnitude) #for kph
-        speed = int(s.value.magnitude * .060934)  # for mph
+        speed = int(s.value.magnitude) #for kph
+        # speed = int(s.value.magnitude * .060934)  # for mph
 
 
 def get_fuel_rail_press(fp):
