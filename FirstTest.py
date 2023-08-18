@@ -25,7 +25,7 @@ def get_fuel_rail_press(fp):
 def get_intake_temp(it):
     global intake_temp
     if not it.is_null():
-        intake_temp = int(int(it.value.magnitude) * 1.8 + 32)  # C to F
+        intake_temp = float(int(it.value.magnitude) * 1.8 + 32)  # C to F
 
 
 def get_afr(af):
@@ -43,7 +43,7 @@ def get_rpm(r):
 def get_load(l):
     global load
     if not l.is_null():
-        load = int(l.value.magnitude)
+        load = float(l.value.magnitude)
 
 
 def get_coolant_temp(ct):
