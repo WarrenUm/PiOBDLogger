@@ -49,7 +49,7 @@ def get_load(l):
 def get_coolant_temp(ct):
     global coolant_temp
     if not ct.is_null():
-        coolant_temp = int(int(ct.value.magnitude) * 1.8 + 32) # convert to F
+        coolant_temp = float(int(ct.value.magnitude) * 1.8 + 32) # convert to F
 
 
 def get_intake_press(ip):
