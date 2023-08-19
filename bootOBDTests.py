@@ -20,7 +20,7 @@ fuelStatus = connection.query(obd.commands.FUEL_STATUS).value[0]
 print(f'Fuel Status: {fuelStatus}')
 
 fuelType = connection.query(obd.commands.FUEL_TYPE).value
-print('Fuel Type: {fuelType}')
+print(f'Fuel Type: {fuelType}')
 
 ethanolPercent = connection.query(obd.commands.ETHANOL_PERCENT).value.magnitude
 print(f'Fuel Contains {ethanolPercent} Percent Ethanol')
