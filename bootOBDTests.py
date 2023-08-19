@@ -29,5 +29,5 @@ fuelLevel = round(connection.query(obd.commands.FUEL_LEVEL).value.magnitude,roun
 print(f'Fuel Tank At {fuelLevel}%')
 
 approximateGallonsLeft = round(((fuelLevel/100) * fuelCapGallons),roundDigits)
-distanceRemaining = mpg * approximateGallonsLeft
+distanceRemaining = round((mpg * approximateGallonsLeft),roundDigits)
 print(f'You Have About {approximateGallonsLeft} Gallons Remaining And Can Drive Approximately {distanceRemaining} Miles')
