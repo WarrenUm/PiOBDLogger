@@ -4,7 +4,7 @@ roundDigits = 1
 fuelCapGallons = 15.6
 mpg = 24
 
-obd.logger.setLevel(obd.logging.DEBUG)
+# obd.logger.setLevel(obd.logging.DEBUG)
 
 connection = obd.OBD(fast=False)
 while len(connection.supported_commands) < 100:
