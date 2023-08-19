@@ -16,10 +16,10 @@ print('Gathering Vehicle Information')
 vin = connection.query(obd.commands.VIN)
 print(f'Vin #: {vin}')
 
-fuelStatus = connection.query(obd.commands.FUEL_STATUS)[0]
+fuelStatus = connection.query(obd.commands.FUEL_STATUS).value[0]
 print(f'Fuel Status: {fuelStatus}')
 
-fuelType = connection.query(obd.commands.FUEL_TYPE)
+fuelType = connection.query(obd.commands.FUEL_TYPE).value
 print('Fuel Type: {fuelType}')
 
 ethanolPercent = connection.query(obd.commands.ETHANOL_PERCENT).value.magnitude
