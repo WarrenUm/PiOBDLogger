@@ -13,7 +13,7 @@ while len(connection.supported_commands) < 100:
 print('Connection Established')
 print('Gathering Vehicle Information')
 
-vin = connection.query(obd.commands.VIN)
+vin = connection.query(obd.commands.VIN).value
 print(f'Vin #: {vin}')
 
 fuelStatus = connection.query(obd.commands.FUEL_STATUS).value[0]
@@ -30,4 +30,4 @@ print(f'Fuel Tank At {fuelLevel}%')
 
 approximateGallonsLeft = round(((fuelLevel/100) * fuelCapGallons),roundDigits)
 distanceRemaining = mpg * approximateGallonsLeft
-print(f'You Have About {approximateGallonsLeft} Gallons Remaining And Can Drive Approximately {distanceRemaining}')
+print(f'You Have About {approximateGallonsLeft} Gallons Remaining And Can Drive Approximately {distanceRemaining} Miles')
