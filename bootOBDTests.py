@@ -1,6 +1,6 @@
 import obd
 
-roundDigits = 1
+roundDigits = 3
 fuelCapGallons = 15.6
 mpg = 24
 
@@ -22,10 +22,10 @@ print(f'Fuel Status: {fuelStatus}')
 fuelType = connection.query(obd.commands.FUEL_TYPE).value
 print(f'Fuel Type: {fuelType}')
 
-ethanolPercent = connection.query(obd.commands.ETHANOL_PERCENT).value.magnitude
+ethanolPercent = round(connection.query(obd.commands.ETHANOL_PERCENT).value.magnitude,roundDigits)
 print(f'Fuel Contains {ethanolPercent} Percent Ethanol')
 
-fuelLevel = connection.query(obd.commands.FUEL_LEVEL).value.magnitude
+fuelLevel = round(connection.query(obd.commands.FUEL_LEVEL).value.magnitude,roundDigits)
 print(f'Fuel Tank At {fuelLevel}%')
 
 approximateGallonsLeft = round(((fuelLevel/100) * fuelCapGallons),roundDigits)
