@@ -259,8 +259,9 @@ obd.logger.removeHandler(obd.console_handler)
 ecu_connections()
 run = True
 logging = True
+lastRun = time.monotonic()
 while run:
-    
-    if logging:
-        log_to_file()
-        time.sleep(0.25)
+    currentRun = time.monotonic()
+        if currentRun - lastRun >= 1:
+        if logging:
+            log_to_file()
